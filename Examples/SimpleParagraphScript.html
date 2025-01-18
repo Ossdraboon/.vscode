@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>This is the Titel of the Document</title>
+</head>
+
+<body>
+  <h1>Simple Script Paragraph</h1>
+  <ul>
+    <li>Event Listener:
+      Wartet, bis das DOM vollständig geladen ist.</li>
+    <li>Konstante content:
+      Enthält den Text, der im Paragraphen angezeigt werden soll.</li>
+    <li>Erstellen eines Paragraphen:
+      <!--  Ein neues \<p\> -Element wird erstellt. -->
+    </li>Ein neues &lt;p&gt;-Element wird
+    <li> Setzen des Textinhalts:
+      Der Textinhalt des Paragraphen wird auf den Wert von content gesetzt. </li>
+    <li>Hinzufügen zum DOM:
+      Der Paragraph wird als letztes Kind des
+
+      <body>-Elements hinzugefügt und im Browser angezeigt.
+    </li>
+
+
+  </ul>
+
+</body>
+<script>
+
+  /*Warten auf das vollständige Laden des DOM:
+    Der Event Listener DOMContentLoaded sorgt dafür, dass der enthaltene Code erst ausgeführt wird, wenn das gesamte HTML-Dokument vollständig geladen und geparst wurde. Das bedeutet, dass alle Elemente im DOM (Document Object Model) verfügbar sind und manipuliert werden können.
+    Ohne diesen Listener könnte es passieren, dass der JavaScript-Code versucht, auf DOM-Elemente zuzugreifen, die noch nicht existieren, was zu Fehlern führen würde.
+    */
+
+
+  document.addEventListener("DOMContentLoaded",
+    /*document.addEventListener('DOMContentLoaded', ...) fügt einen Event Listener zum document hinzu, der auf das DOMContentLoaded-Event wartet.*/
+
+    (event) => {
+      /*Die Callback-Funktion (event) => { ... } wird aufgerufen, sobald das DOMContentLoaded-Event ausgelöst wird. Das bedeutet, dass der Code innerhalb dieser Funktion erst ausgeführt wird, wenn das DOM vollständig geladen ist.*/
+      const content = "Dies ist ein dynamischer Paragraph.";
+      /*const wird verwendet, um Konstanten zu deklarieren, deren Wert sich nicht ändern soll. In diesem Fall wird content und p als Konstanten deklariert, weil sie nach der Zuweisung nicht mehr verändert werden.
+      const ist vorzuziehen, wenn du sicher bist, dass die Variable nicht neu zugewiesen wird. Es hilft, unbeabsichtigte Änderungen zu vermeiden und den Code sicherer zu machen.
+      let wird verwendet, wenn der Wert der Variable später geändert werden soll.
+      var ist die ältere Art, Variablen zu deklarieren, und hat einige Nachteile, wie z.B. Funktions-Scope statt Block-Scope, was zu unerwartetem Verhalten führen kann. Daher wird var heutzutage weniger verwendet.*/
+      const p = document.createElement("p");
+      /*Diese Methode erstellt ein neues HTML-Element vom angegebenen Typ. In diesem Fall wird ein neues <p>-Element (Paragraph) erstellt.
+      Das neu erstellte Element existiert noch nicht im DOM (Document Object Model), sondern nur im Speicher. Es muss noch dem DOM hinzugefügt werden, um sichtbar zu sein.
+      p.textContent*/
+      p.textContent = content;
+      /*Diese Eigenschaft setzt oder gibt den Textinhalt eines Elements zurück. In diesem Fall wird der Textinhalt des neu erstellten Paragraphen auf den Wert der content-Variablen gesetzt.*/
+      document.body.appendChild(p);
+      /*Diese Methode fügt ein Kind-Element an das Ende eines Eltern-Elements an. In diesem Fall wird das neu erstellte <p>-Element als letztes Kind des <body>-Elements hinzugefügt.
+      Dadurch wird der Paragraph tatsächlich im DOM platziert und im Browser angezeigt.*/
+
+    });
+
+
+</script>
+
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="/Scripts/JavaLib.js"></script>
+</head>
+
+<body>
+
+</body>
+<script>
+  const symbol = "X";
+  const width = 3;
+  const height = 9;
+
+  printSquare(symbol, width, height);
+
+
+  function printSquare(symbol, width, height) {
+    for (let i = 0; i < width; i++) {
+      for (let j = 0; j < height; j++) {
+        printSpan(symbol)
+      }
+      printBr();
+
+    }
+  }
+
+
+</script>
+
+</html>
