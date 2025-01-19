@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PrintChristmasTree</title>
+  <script src="/Scripts/JavaLib.js"></script>
+</head>
+
+<body>
+  <script>
+    const symbol = "*";
+    const size = 25;
+
+    function printChristmasTree(size) {
+      document.body.innerHTML = ''; // Clear the body content
+
+      let treeBody = 1;
+      let treeSpaces = size - 1;
+      for (let i = 0; i < size; i++) {
+        printSpaces(treeSpaces, "X", "white");
+        printTreeBody(treeBody, "X", "green");
+
+        treeBody = treeBody + 2;
+        treeSpaces = treeSpaces - 1;
+      }
+
+      let trunkBody = size / 2;
+      let treewidth = size * 2 - 1;
+      let trunkheight = size / 3 - 1;
+      let trunkSpaces = treewidth / 2 - trunkBody / 2;
+
+      for (let i = 0; i < trunkheight; i++) {
+        printSpaces(trunkSpaces, "X", "white");
+        printTrunkBody(trunkBody, "+", "peru", "saddlebrown");
+      }
+    }
+
+    function getRandomInt(max) {
+      return Math.floor(Math.random() * max);
+    }
+
+    function printSpaces(count, text, color) {
+      for (let i = 0; i < count; i++) {
+        printSpanColor(color, text);
+      }
+    }
+
+    function printTrunkBody(count, text, color, backgroundColor) {
+      for (let i = 0; i < count; i++) {
+        const span = document.createElement("span");
+        span.textContent = text;
+        span.style.color = color;
+        span.style.backgroundColor = backgroundColor;
+        document.body.appendChild(span);
+      }
+      printBr();
+    }
+
+    function printTreeBody(count, text, color) {
+      const colorlist = ["blue", "violet", "red", "yellow", "orange"];
+      for (let i = 0; i < count; i++) {
+        if (getRandomInt(100) < 20) { // 20% Wahrscheinlichkeit
+          const randomColor = colorlist[getRandomInt(colorlist.length)];
+          const span = document.createElement("span");
+          span.textContent = "X";
+          span.style.color = randomColor;
+          span.style.backgroundColor = "darkgreen";
+          document.body.appendChild(span);
+          //printSpanColor(randomColor, "X");
+        } else {
+          const span = document.createElement("span");
+          span.textContent = text;
+          span.style.color = color;
+          span.style.backgroundColor = "darkgreen";
+          document.body.appendChild(span);
+          //printSpanColor(color, text);
+        }
+      }
+      printBr();
+    }
+
+    printChristmasTree(size);
+
+    setInterval(() => {
+      printChristmasTree(size);
+    }, 300); // 3000 milliseconds = 3 seconds
+  </script>
+</body>
+
+</html>
