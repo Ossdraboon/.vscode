@@ -11,22 +11,22 @@
 <body>
 
 </body>
+
 <script>
-  printH(1, "PrintSquare");
+  printH(1, "PrintRectangle");
 
   const symbol = "X";
-  const size = 8;
+  const width = 3;
+  const height = 9;
 
-  printSquare(symbol, size);
+  printRectangle(symbol, width, height);
 
-
-  function printSquare(symbol, size) {
-    for (let i = 0; i < size; i++) {
-      for (let j = 0; j < size; j++) {
+  function printRectangle(symbol, width, height) {
+    for (let i = 0; i < width; i++) {
+      for (let j = 0; j < height; j++) {
         printSpan(symbol)
       }
       printBr();
-
     }
   }
 

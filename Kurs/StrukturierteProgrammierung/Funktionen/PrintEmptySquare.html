@@ -12,21 +12,25 @@
 
 </body>
 <script>
-  printH(1, "PrintSquare");
+  printH(1, "PrintEmptySquare");
 
   const symbol = "X";
   const size = 8;
 
-  printSquare(symbol, size);
+  printEmptySquare(symbol, size);
 
-
-  function printSquare(symbol, size) {
+  function printEmptySquare(symbol, size) {
     for (let i = 0; i < size; i++) {
       for (let j = 0; j < size; j++) {
-        printSpan(symbol)
+        //wenn i oder j gleich 0 oder size-1 ist, dann gib das Symbol aus.
+        if (i == 0 || i == size - 1 || j == 0 || j == size - 1) {
+          printSpan(symbol);
+        } else {
+          printLeerZeichen("O");
+        }
+
       }
       printBr();
-
     }
   }
 

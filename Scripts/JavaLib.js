@@ -7,6 +7,8 @@ window.printPre = printPre;
 window.printList = printList;
 window.printHr = printHr;
 window.printBr = printBr;
+window.printLeerZeichen = printLeerZeichen;
+window.printSpanColor = printSpanColor;
 
 
 function printH(level, content) {
@@ -37,6 +39,27 @@ function printSpan(content) {
   // Append the span to the body of the document
   document.body.appendChild(span);
 }
+function printLeerZeichen(content) {
+  // Create a new span element
+  const span = document.createElement('span');
+  // Set the text content of the span to the content
+  span.textContent = content;
+  // Set the style of the span to have white text color
+  span.style.color = 'white';
+  // Append the span to the body of the document
+  document.body.appendChild(span);
+}
+function printSpanColor(color, content) {
+  // Create a new span element
+  const span = document.createElement('span');
+  // Set the text content of the span to the content
+  span.textContent = content;
+  // Set the style of the span to have white text color
+  span.style.color = color;
+  // Append the span to the body of the document
+  document.body.appendChild(span);
+}
+
 function printDiv(content) {
   // Create a new div element
   const div = document.createElement('div');

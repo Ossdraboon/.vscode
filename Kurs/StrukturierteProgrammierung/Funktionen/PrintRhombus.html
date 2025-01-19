@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="/Scripts/JavaLib.js"></script>
+</head>
+
+<body>
+
+</body>
+<script>
+  printH(1, "PrintRhombus");
+
+  const symbol = "X";
+  const size = 7;
+
+  printRhombus(symbol, size);
+  printHr();
+  printHelp(symbol, size);
+
+  function printRhombus(symbol, size) {
+    //Beide Schleifen werden 2*size-1 mal durchlaufen, damit wir nach rechts und nach unten gespiegelt werden
+    for (let i = 0; i < 2 * size - 1; i++) {
+      for (let j = 0; j < 2 * size - 1; j++) {
+        //immer wenn i und j den wert von size-1 haben, dann wird ein X ausgegeben
+        if (i + j == size - 1) {
+          printSpan(symbol);
+          //immer wenn j genau den wert von size +i -1 hat, dann wird ein X ausgegeben
+        } else if (j == size + i - 1) {
+          printSpan(symbol);
+          //immer wenn j genau den wert von i - size +1 hat, dann wird ein X ausgegeben
+        } else if (j == i - size + 1) {
+          printSpan(symbol);
+          //immer wenn i und j den wert von 3*(size-1) haben, dann wird ein X ausgegeben
+        } else if (i + j == 3 * (size - 1)) {
+          printSpan(symbol);
+        } else {
+          printLeerZeichen("O");
+          //printSpan("O");
+        }
+      }
+      printBr();
+
+    }
+  }
+
+  function printHelp(symbol, size) {
+    //Beide Schleifen werden 2*size-1 mal durchlaufen, damit wir nach rechts und nach unten gespiegelt werden
+    for (let i = 0; i < 2 * size - 1; i++) {
+      for (let j = 0; j < 2 * size - 1; j++) {
+        //immer wenn i und j den wert von size-1 haben, dann wird ein X ausgegeben
+        if (i + j == size - 1) {
+          printSpanColor("Red", `[${formatNumber(i)}:${formatNumber(j)}]`);
+          //immer wenn j genau den wert von size +i -1 hat, dann wird ein X ausgegeben
+        } else if (j == size + i - 1) {
+          printSpanColor("Red", `[${formatNumber(i)}:${formatNumber(j)}]`);
+          //immer wenn j genau den wert von i - size +1 hat, dann wird ein X ausgegeben
+        } else if (j == i - size + 1) {
+          printSpanColor("Red", `[${formatNumber(i)}:${formatNumber(j)}]`);
+          //immer wenn i und j den wert von 3*(size-1) haben, dann wird ein X ausgegeben
+        } else if (i + j == 3 * (size - 1)) {
+          printSpanColor("Red", `[${formatNumber(i)}:${formatNumber(j)}]`);
+        } else {
+          printSpanColor("Black", `[${formatNumber(i)}:${formatNumber(j)}]`);
+
+        }
+      }
+      printBr();
+
+    }
+  }
+  //Funktion um die Zahlen zu formatieren, die nur eine Dezimalstelle haben, damit die Formatierung einheitlich ist beim Browser
+  function formatNumber(num) {
+    //pruefen ob die Zahl kleiner als 10 ist, wenn ja, dann wird eine 0 vor die Zahl gesetzt, wenn nein, dann wird die Zahl unverändert zurückgegeben
+    return num < 10 ? '0' + num : num;
+  }
+
+</script>
+
+</html>

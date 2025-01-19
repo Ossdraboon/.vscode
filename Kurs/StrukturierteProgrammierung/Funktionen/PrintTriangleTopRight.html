@@ -12,21 +12,24 @@
 
 </body>
 <script>
-  printH(1, "PrintSquare");
+  printH(1, "PrintTriangleTopRight");
 
   const symbol = "X";
-  const size = 8;
+  const size = 5;
 
-  printSquare(symbol, size);
+  printTriangleTopRight(symbol, size);
 
-
-  function printSquare(symbol, size) {
+  function printTriangleTopRight(symbol, size) {
     for (let i = 0; i < size; i++) {
       for (let j = 0; j < size; j++) {
-        printSpan(symbol)
+        //Wenn j kleiner als i ist, dann wird ein Leerzeichen ausgegeben, ansonsten ein Symbol.
+        if (j < i) {
+          printSpan("O");
+        } else {
+          printSpan(symbol);
+        }
       }
       printBr();
-
     }
   }
 

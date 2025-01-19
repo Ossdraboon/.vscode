@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="/Scripts/JavaLib.js"></script>
+</head>
+
+<body>
+
+</body>
+
+<script>
+  const symbol = "X";
+  const size = 5;
+  let boolValue = false;
+  printH(1, "PrintSlash");
+  printH(2, "Der Aktuelle Boolean Wert ist: " +
+    boolValue
+  );
+
+
+  function printSlash(symbol, size, boolValue) {
+    document.body.innerHTML = ''; // Clear the body content
+    printH(1, "PrintSlash"); // Re-add the heading
+    printH(2, "Der Aktuelle Boolean Wert ist: " + boolValue); // Re-add the heading
+    for (let i = 0; i < size; i++) {
+      for (let j = 0; j < size; j++) {
+        if (boolValue) {
+          if (i == j) {
+            printSpan(symbol);
+          } else {
+            printLeerZeichen("O");
+          }
+        } else {
+          if (i + j == size - 1) {
+            printSpan(symbol);
+          } else {
+            printLeerZeichen("O");
+          }
+        }
+      }
+      printBr();
+    }
+  }
+
+  printSlash(symbol, size, boolValue);
+
+  setInterval(() => {
+    boolValue = !boolValue; // Switch the boolean value
+    printSlash(symbol, size, boolValue); // Re-run the function with the new boolean value
+  }, 3000); // 3000 milliseconds = 3 seconds
+
+  /*
+  setInterval und setTimeout sind integrierte Funktionen in JavaScript und gehören zur Web API, die von Browsern bereitgestellt wird. Sie sind Teil der HTML5-Standardbibliothek und können in jedem modernen Browser verwendet werden.
+
+  setTimeout
+  Beschreibung: Führt eine Funktion oder einen Codeblock nach einer bestimmten Verzögerung (in Millisekunden) einmal aus.
+  Syntax: setTimeout(function, delay)
+
+  setInterval
+  Beschreibung: Führt eine Funktion oder einen Codeblock in regelmäßigen Abständen (in Millisekunden) wiederholt aus.
+  Syntax: setInterval(function, interval)
+  */
+</script>
+
+
+
+
+</html>

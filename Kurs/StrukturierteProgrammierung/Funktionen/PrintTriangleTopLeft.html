@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="/Scripts/JavaLib.js"></script>
+</head>
+
+<body>
+
+</body>
+<script>
+  printH(1, "PrintTriangleTopLeft");
+
+  const symbol = "X";
+  const size = 5;
+
+  printTriangleTopLeft(symbol, size);
+  printHr();
+  printTriangleTopLeft2(symbol, size);
+
+
+
+  function printTriangleTopLeft(symbol, size) {
+    //Beide Schleifen zählen bis zur zahl von size durch und mit der If-Abfrage wird entschieden, ob ein Symbol oder ein Leerzeichen ausgegeben wird. Wenn j größer oder gleich size - i ist, dann wird ein Symbol ausgegeben, ansonsten ein Leerzeichen.
+    for (let i = 0; i < size; i++) {
+      for (let j = 0; j < size; j++) {
+        if (j >= size - i) {
+          printSpan("O");
+        } else {
+          printSpan(symbol);
+        }
+      }
+      printBr();
+    }
+  }
+
+  function printTriangleTopLeft2(symbol, size) {
+    //Nur die erste Schleife zählt bis size komplett durch, die zweite Schleife zählt bis i.
+    //Was beim oberen Beispiel mit der If-Abfrage gemacht wurde, wird hier mit der zweiten Schleife gemacht, indem sie bis zur zahl was size beinhaltet zählt und jedesmal davon i abzieht. Dadruch das sich i um 1 erhöht, wird die Schleife um 1 kürzer.
+    for (let i = 0; i < size; i++) {
+      for (let j = 0; j < (size - i); j++) {
+        printSpan(symbol);
+      }
+      printBr();
+    }
+  }
+
+
+</script>
+
+</html>

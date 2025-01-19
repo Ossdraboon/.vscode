@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="/Scripts/JavaLib.js"></script>
+</head>
+
+<body>
+
+</body>
+<script>
+  printH(1, "PrintPyramide");
+
+  const symbol = "X";
+  const size = 5;
+
+  printPyramide(symbol, size);
+  printHr();
+  printPyramideFull(symbol, size);
+  printHr();
+  printPyramideLuki(symbol, size);
+
+
+  function printPyramide(symbol, size) {
+    for (let i = 0; i < size; i++) {
+      for (let j = 0; j < 2 * size - 1; j++) {
+        //wenn j und i zusammen size-1 ergeben oder j gleich size+i-1 ist oder i gleich size-1 ist, dann gib das Symbol aus.
+        if (j + i == size - 1 || j == size + i - 1 || i == size - 1) {
+          printSpan(symbol);
+        } else {
+          printLeerZeichen("O");
+        }
+
+      }
+      printBr();
+    }
+  }
+
+  function printPyramideFull(symbol, size) {
+    for (let i = 0; i < size; i++) {
+      for (let j = 0; j < 2 * size - 1; j++) {
+        //wenn j + i größer oder gleich size-1 ist und j kleiner oder gleich i ist, dann gib das Symbol aus.
+        if (j + i >= size - 1 && j <= i) {
+          printSpan(symbol);
+        } else {
+          printLeerZeichen("O");
+        }
+
+      }
+      printBr();
+    }
+  }
+
+  function printPyramideLuki(symbol, size) {
+    //Das Problem wird in mehrer kleine "häppchen" aufgeteilt.
+    //zuerst erstellen wir 2 variablen, die die anzahl der Symbole und Leerzeichen speichern.
+    let print = 1;
+    let space = size - 1;
+
+    //dann erstellen wir 2 Funktionen, die uns die Symbole und Leerzeichen ausgeben.
+    function printSpace(space) {
+      for (let i = 0; i < space; i++) {
+        printLeerZeichen("O");
+      }
+    }
+    function printSymbol(print) {
+      for (let i = 0; i < print; i++) {
+        printSpan(symbol);
+      }
+    }
+    //zuletzt erstellen wir eine Schleife, die die Funktionen aufruft und die Anzahl der Symbole und Leerzeichen erhöht bzw. vermindert.
+    for (let i = 0; i < size; i++) {
+      printSpace(space);
+      printSymbol(print);
+      printBr();
+      print += 2;
+      space--;
+    }
+
+  }
+
+</script>
+
+</html>
