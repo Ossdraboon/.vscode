@@ -43,7 +43,7 @@ function printLeerZeichen(content) {
   // Create a new span element
   const span = document.createElement('span');
   // Set the text content of the span to the content
-  span.textContent = content;
+  span.textContent = content.replaceAll(/ /g, '\u00A0');
   // Set the style of the span to have white text color
   span.style.color = 'white';
   // Append the span to the body of the document

@@ -8,7 +8,7 @@
   <script src="/Scripts/JavaLib.js"></script>
 </head>
 
-<body>
+<body style="font-family: monospace">
 
 </body>
 <script>
@@ -46,7 +46,7 @@
         if (j + i >= size - 1 && j <= i) {
           printSpan(symbol);
         } else {
-          printLeerZeichen("O");
+          printLeerZeichen(" ");
         }
 
       }
@@ -63,7 +63,7 @@
     //dann erstellen wir 2 Funktionen, die uns die Symbole und Leerzeichen ausgeben.
     function printSpace(space) {
       for (let i = 0; i < space; i++) {
-        printLeerZeichen("O");
+        printLeerZeichen(" ");
       }
     }
     function printSymbol(print) {
